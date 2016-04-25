@@ -50,15 +50,12 @@ public class UsuarioDAO {
                     if (rs.next()){
                         Usuario usuarioBanco = new Usuario();
                         usuarioBanco.setSenha(rs.getString("senha"));
-                        String senha = new CriptografiaMD5().criptografa(usuario.getSenha());
-                        if(usuarioBanco.getSenha().equals(senha)){
+                        String senhaCriptografada = new CriptografiaMD5().criptografa(usuario.getSenha());
+                        if(usuarioBanco.getSenha().equals(senhaCriptografada)){
                             return true;
-                        }else{
-                            return false;
                         }
-                    }else{
-                        return false;
                     }
+                    return false;
                 } catch (Exception e) {
                     e.printStackTrace();
                     throw new RuntimeException();
