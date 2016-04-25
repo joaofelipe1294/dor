@@ -9,6 +9,7 @@ import conexao.ConnectionFactory;
 import criptografia.CriptografiaMD5;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import modelos.Usuario;
 
 /**
@@ -29,6 +30,40 @@ public class UsuarioDAO {
                 con.commit();
             } catch (Exception e) {
                 con.rollback();
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
+    public boolean verificaExistencia(Usuario usuario){
+        String sql = "select senha	\n" +
+                     "from usuario\n" +
+                     "where email = ?;";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, usuario.getEmail());
+                try (ResultSet rs = stmt.executeQuery()){
+                    if (rs.next()){
+                        Usuario usuarioBanco = new Usuario();
+                        usuarioBanco.setSenha(rs.getString("senha"));
+                        String senha = new CriptografiaMD5().criptografa(usuario.getSenha());
+                        if(usuarioBanco.getSenha().equals(senha)){
+                            return true;
+                        }else{
+                            return false;
+                        }
+                    }else{
+                        return false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
                 throw new RuntimeException();
             }

@@ -41,7 +41,7 @@ public class UsuarioDAOTest {
     /**
      * Test of cadastra method, of class UsuarioDAO.
      */
-    @Test
+    /*@Test
     public void testCadastra() {
         Usuario usuario = new Usuario();
         usuario.setEmail("joaofelipe_lopes@hotmail.com");
@@ -54,6 +54,16 @@ public class UsuarioDAOTest {
             e.printStackTrace();
         }
         
+    }*/
+    
+    @Test
+    public void teste(){
+        Usuario usuario = new Usuario();
+        usuario.setEmail("joaofelipe_lopes@hotmail.com");
+        usuario.setSenha("1234");
+        boolean result = new UsuarioDAO().verificaExistencia(usuario);
+        assertTrue(result);
+        System.out.println(result);
     }
     
 }
