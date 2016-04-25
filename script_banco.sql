@@ -1,6 +1,6 @@
 create table if not exists usuario (
 	usuario_id serial ,
-	login varchar (255) unique not null , 
+	email varchar (255) unique not null , 
    	senha varchar (255) not null ,
    	constraint pk_usuario primary key (usuario_id)
 );
