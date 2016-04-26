@@ -56,7 +56,7 @@ public class UsuarioDAOTest {
         
     }*/
     
-    @Test
+    /*@Test
     public void teste(){
         Usuario usuario = new Usuario();
         usuario.setEmail("joaofelipe_lopes@hotmail.com");
@@ -64,6 +64,15 @@ public class UsuarioDAOTest {
         boolean result = new UsuarioDAO().verificaExistencia(usuario);
         assertTrue(result);
         System.out.println(result);
+    }*/
+    
+    @Test
+    public void testaLista(){
+        Usuario usuarioBusca = new Usuario();
+        usuarioBusca.setEmail("an");
+        for(Usuario usuario : new UsuarioDAO().busca(usuarioBusca)){
+            System.out.println(usuario);
+        }
     }
     
 }

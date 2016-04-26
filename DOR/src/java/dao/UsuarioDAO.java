@@ -10,6 +10,8 @@ import criptografia.CriptografiaMD5;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import modelos.Usuario;
 
 /**
@@ -56,6 +58,35 @@ public class UsuarioDAO {
                         }
                     }
                     return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
+    public List<Usuario> busca(Usuario usuario){
+        String sql = "select email\n" +
+                     "from usuario\n" +
+                     "where email like ?";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, "%" + usuario.getEmail() + "%");
+                try (ResultSet rs = stmt.executeQuery()){
+                    List<Usuario> usuarios = new ArrayList<>();
+                    while(rs.next()){
+                        Usuario usuarioEncontrado = new Usuario();
+                        usuarioEncontrado.setEmail(rs.getString("email"));
+                        usuarios.add(usuarioEncontrado);
+                    }
+                    return usuarios;
                 } catch (Exception e) {
                     e.printStackTrace();
                     throw new RuntimeException();
