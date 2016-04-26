@@ -8,10 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>DOR</title>
     </head>
     <body>
-        USUARIO LOGADO !
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="usuario_logado.jsp">DOR</a>
+            </div>
+        </div>
     </body>
 </html>

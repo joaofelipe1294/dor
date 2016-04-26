@@ -31,8 +31,9 @@ public class Controller extends HttpServlet{
             Class<?> tipo = Class.forName(tarefa);
             Tarefa instancia = (Tarefa) tipo.newInstance();
             String pagina = instancia.executa(req , resp);
-            RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
-            dispatcher.forward(req, resp);
+            resp.sendRedirect(pagina);
+            //RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
+            //dispatcher.forward(req, resp);
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
             throw new ServletException(e);
