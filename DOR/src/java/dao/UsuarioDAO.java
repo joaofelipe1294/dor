@@ -128,4 +128,24 @@ public class UsuarioDAO {
         }
     }
     
+    public void remove(Usuario usuario){
+        String sql = "delete from usuario\n" +
+                     "where email = ?";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            con.setAutoCommit(false);
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, usuario.getEmail());
+                stmt.execute();
+                con.commit();
+            } catch (Exception e) {
+                con.rollback();
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }

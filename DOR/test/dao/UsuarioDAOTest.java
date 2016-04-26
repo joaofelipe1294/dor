@@ -75,10 +75,24 @@ public class UsuarioDAOTest {
         }
     }*/
     
-    @Test
+    /*@Test
     public void testaLista(){
         for(Usuario usuario : new UsuarioDAO().lista())
             System.out.println(usuario);
+    }*/
+    
+    @Test
+    public void testeRemover(){
+        try {
+            Usuario usuario = new Usuario();
+            usuario.setEmail("dana@white.com");
+            new UsuarioDAO().remove(usuario);
+            assertTrue(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
     }
+    
     
 }
