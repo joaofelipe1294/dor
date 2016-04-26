@@ -13,5 +13,30 @@
     </head>
     <body>
         <c:import url="template.jsp"/>
+        <div class="container-fluid thumbnail">
+            <table class="table table-hover table-striped table-responsive col-md-9">
+                <thead>
+                    <th class="text-center">
+                        <label>Email</label>
+                    </th>
+                </thead>
+                <c:forEach var="usuario" items="${usuarios}">
+                    <tr class="text-center">
+                        <td>${usuario.email}</td>
+                        <td style="width: 5%;">
+                            <a href="../controller?tarefa=EditarUsuario" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a> 
+                        </td>
+                        <td style="width: 5%;">
+                            <a href="../controller?tarefa=RemoverUsuario?usuario=${usuario.email}" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a> 
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+        
     </body>
 </html>

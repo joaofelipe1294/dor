@@ -26,7 +26,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="novo_usuario.jsp">Novo</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="usuarios.jsp">Lista</a></li>
+                                <li><a href="../controller?tarefa=ListarUsuarios">Lista</a></li>
                             </ul>
                           </li>
                     </ul>
