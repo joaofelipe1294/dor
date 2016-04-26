@@ -21,7 +21,7 @@
                         <label>Para fazer alguma operação é necessáciria a autenticação</label>
                     </div>
                     <div class="panel-body">
-                        <form>
+                        <form method="post" action="controller?tarefa=Login">
                             <div class ="input-group">
                                 <span class="input-group-addon">@</span>
                                 <input name="email" type ="email" class="form-control" required="true" placeholder ="email"/>

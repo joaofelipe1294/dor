@@ -26,7 +26,7 @@ public class Controller extends HttpServlet{
         if(tarefa == null){
             throw new IllegalArgumentException("Você esqueceu de passar a tarefa");
         }
-        tarefa = "modelos." + tarefa;
+        tarefa = "tarefas." + tarefa;
         try {
             Class<?> tipo = Class.forName(tarefa);
             Tarefa instancia = (Tarefa) tipo.newInstance();
