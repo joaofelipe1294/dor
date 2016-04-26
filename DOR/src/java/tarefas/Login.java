@@ -9,6 +9,8 @@ import dao.UsuarioDAO;
 import interfaces.Tarefa;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 import modelos.Usuario;
 
 /**
@@ -24,6 +26,8 @@ public class Login implements Tarefa{
         usuario.setSenha(req.getParameter("senha"));
         boolean valido = new UsuarioDAO().verificaExistencia(usuario);
         if (valido){
+            HttpSession sessao = req.getSession();
+            sessao.setAttribute("usuario", usuario.getEmail());
             return "paginas_protegidas/usuario_logado.jsp";
         }else{
             return "index.jsp";
