@@ -29,7 +29,7 @@
                             <div class ="form-group margem_input">        
                                 <input name="senha" type="password" class="form-control" required="true" placeholder ="senha"/>
                             </div>
-                            <button class="btn btn-default">Login</button>
+                            <button class="btn btn-primary">Login</button>
                         </form>
                     </div>
                 </div>
