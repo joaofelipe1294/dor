@@ -66,13 +66,19 @@ public class UsuarioDAOTest {
         System.out.println(result);
     }*/
     
-    @Test
-    public void testaLista(){
+    /*@Test
+    public void testaBusca(){
         Usuario usuarioBusca = new Usuario();
         usuarioBusca.setEmail("an");
         for(Usuario usuario : new UsuarioDAO().busca(usuarioBusca)){
             System.out.println(usuario);
         }
+    }*/
+    
+    @Test
+    public void testaLista(){
+        for(Usuario usuario : new UsuarioDAO().lista())
+            System.out.println(usuario);
     }
     
 }

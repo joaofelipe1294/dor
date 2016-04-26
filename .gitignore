@@ -1,4 +1,4 @@
-build.xml
-dist/
-nbproject/private
-/build/
+DOR/build.xml
+DOR/dist/
+DOR/nbproject/private
+DOR/build/

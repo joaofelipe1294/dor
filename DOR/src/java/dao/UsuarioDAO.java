@@ -101,4 +101,31 @@ public class UsuarioDAO {
         }
     }
     
+    public List<Usuario> lista(){
+        String sql = "select email\n" +
+                     "from usuario";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                try (ResultSet rs = stmt.executeQuery()){
+                    List<Usuario> usuarios = new ArrayList<>();
+                    while(rs.next()){
+                        Usuario usuario = new Usuario();
+                        usuario.setEmail(rs.getString("email"));
+                        usuarios.add(usuario);
+                    }
+                    return usuarios;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }
