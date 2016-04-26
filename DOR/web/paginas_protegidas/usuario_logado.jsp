@@ -3,7 +3,7 @@
     Created on : 25/04/2016, 21:21:17
     Author     : joaolopes
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,6 @@
                 <div class="navbar-header">
                   <a class="navbar-brand" href="#">Brand</a>
                 </div>
-
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         
@@ -32,18 +31,14 @@
                           </li>
                     </ul>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        
-      </ul>
-    </div><!-- /.navbar-collapse -->
-
-                
-                
-                
             </div>
         </nav>
-        
+        <c:if test='${erro != null}'>
+            <div class="alert alert-danger" role="alert" display='${erro != "null"}'>${erro}</div>
+        </c:if>
+        <c:if test='${sucesso != null}'>
+            <div class="alert alert-success" role="alert" display='${sucesso != "null"}'>${sucesso}</div>
+        </c:if>
         <script src="../js/jquery.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
     </body>
