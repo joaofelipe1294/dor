@@ -3,7 +3,7 @@
     Created on : 25/04/2016, 21:51:56
     Author     : joaolopes
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+        <c:import url="template.jsp"/>
         <div class="row">
             <div class="container container-fluid">
                 <div class="panel panel-primary  margem_form col-md-offset-2">
