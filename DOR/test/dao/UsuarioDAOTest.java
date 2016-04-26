@@ -81,7 +81,7 @@ public class UsuarioDAOTest {
             System.out.println(usuario);
     }*/
     
-    @Test
+    /*@Test
     public void testeRemover(){
         try {
             Usuario usuario = new Usuario();
@@ -92,7 +92,14 @@ public class UsuarioDAOTest {
             e.printStackTrace();
             fail();
         }
-    }
+    }*/
     
+    @Test
+    public void testePegaId(){
+        Usuario usuario = new Usuario();
+        usuario.setEmail("anderson@siva.com");
+        long id = new UsuarioDAO().pegaId(usuario);
+        System.out.println(id);
+    }
     
 }

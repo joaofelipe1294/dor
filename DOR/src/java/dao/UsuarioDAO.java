@@ -148,4 +148,29 @@ public class UsuarioDAO {
         }
     }
     
+    public long pegaId(Usuario usuario){
+        String sql = "select usuario_id from usuario where email = ?";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, usuario.getEmail());
+                try (ResultSet rs = stmt.executeQuery()){
+                    if(rs.next()){
+                        long usuarioId = rs.getLong("usuario_id");
+                        return usuarioId;
+                    }
+                    throw new IllegalArgumentException("Email informado nao esta cadastrado");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }
