@@ -39,6 +39,11 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li class="text-center">                            
+                            <a href="<c:url value="/controller?tarefa=PreparaEditarUsuario&usuarioEditar=${usuario}" context="/DOR"/>">
+                                <span class="glyphicon glyphicon-user"></span>  ${usuario}
+                            </a>
+                        </li>
                         <li class="active"><a href="<c:url value="/controller?tarefa=Logout" context="/DOR"/>">Logout</a></li>
                     </ul>
                 </div>
