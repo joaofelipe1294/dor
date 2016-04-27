@@ -10,8 +10,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>DOR</title>
-        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../css/index.css">
     </head>
     <body>
         <c:import url="../template.jsp"/>
@@ -25,13 +23,13 @@
                 <c:forEach var="usuario" items="${usuarios}">
                     <tr class="text-center">
                         <td>${usuario.email}</td>
-                        <td style="width: 5%;">
-                            <a href="../../controller?tarefa=PreparaEditarUsuario&usuarioEditar=${usuario.email}" class="btn btn-warning">
+                        <td class="largura_5">
+                            <a href="<c:url value="/controller?tarefa=PreparaEditarUsuario&usuarioEditar=${usuario.email}" context="/DOR"/>" class="btn btn-warning">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a> 
                         </td>
-                        <td style="width: 5%;">
-                            <a href="../../controller?tarefa=PreparaRemoverUsuario&usuarioRemover=${usuario.email}" class="btn btn-danger">
+                        <td class="largura_5">
+                            <a href="<c:url value="/controller?tarefa=PreparaRemoverUsuario&usuarioRemover=${usuario.email}" context="/DOR"/>" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </a> 
                         </td>
@@ -39,7 +37,5 @@
                 </c:forEach>
             </table>
         </div>
-        <script src="../../js/jquery.js"></script>
-        <script src="../../bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

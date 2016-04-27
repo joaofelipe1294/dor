@@ -9,6 +9,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="<c:url value="/bootstrap/css/bootstrap.min.css" context="/DOR"/>">
+        <link rel="stylesheet" href="<c:url value="/css/index.css" context="/DOR"/>">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>DOR</title>
     </head>
