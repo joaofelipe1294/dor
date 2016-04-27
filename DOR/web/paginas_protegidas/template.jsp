@@ -32,7 +32,7 @@
                         <li class="dropdown active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresa<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="novo_usuario.jsp">Nova</a></li>
+                                <li><a href="<c:url value="/paginas_protegidas/empresa/cadastrar_empresa.jsp" context="/DOR"/>">Nova</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="../controller?tarefa=ListarUsuarios">Lista</a></li>
                             </ul>
