@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/index.css">
-        <title>JSP Page</title>
+        <title>DOR</title>
     </head>
     <body>
         <c:import url="template.jsp"/>
@@ -47,10 +47,8 @@
                 var repeticao = $('#repeticao').val();
                 if (senha === repeticao){    
                     $('#botao').prop('disabled' , false);
-                    console.log("sim!")
                 }else{
                     $('#botao').prop('disabled' , true);
-                    console.log("nao")
                 }
             });
             
@@ -59,10 +57,8 @@
                 var repeticao = $('#repeticao').val();
                 if (senha === repeticao){
                     $('#botao').prop('disabled' , false);
-                    console.log("sim!")
                 }else{
                     $('#botao').prop('disabled' , true);
-                    console.log("nao")
                 }
             });
         </script>

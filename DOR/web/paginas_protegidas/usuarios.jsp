@@ -24,7 +24,7 @@
                     <tr class="text-center">
                         <td>${usuario.email}</td>
                         <td style="width: 5%;">
-                            <a href="../controller?tarefa=EditarUsuario" class="btn btn-warning">
+                            <a href="../controller?tarefa=PreparaEditarUsuario&usuarioEditar=${usuario.email}" class="btn btn-warning">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a> 
                         </td>
