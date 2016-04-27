@@ -22,7 +22,7 @@
                         <label>Cadastro de novo usuario</label>
                     </div>
                     <div class="panel-body">
-                        <form method="post" action="../../controller?tarefa=CadastrarUsuario">
+                        <form method="post" action="<c:url value="/controller?tarefa=CadastrarUsuario" context="/DOR"/>">
                             <div class ="input-group">
                                 <span class="input-group-addon">@</span>
                                 <input name="email" type ="email" class="form-control" required="true" placeholder ="email"/>
