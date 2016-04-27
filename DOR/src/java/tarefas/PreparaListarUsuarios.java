@@ -17,14 +17,14 @@ import modelos.Usuario;
  *
  * @author joaolopes
  */
-public class ListarUsuarios implements Tarefa{
+public class PreparaListarUsuarios implements Tarefa{
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession sessao = req.getSession();
         List<Usuario> usuarios = new UsuarioDAO().lista();
         sessao.setAttribute("usuarios", usuarios);
-        return "paginas_protegidas/usuarios.jsp";
+        return "paginas_protegidas/usuario/usuarios.jsp";
     }
     
 }

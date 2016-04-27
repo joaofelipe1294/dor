@@ -10,9 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>DOR</title>
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/index.css">
     </head>
     <body>
-        <c:import url="template.jsp"/>
+        <c:import url="../template.jsp"/>
         <div class="container-fluid thumbnail">
             <table class="table table-hover table-striped table-responsive col-md-9">
                 <thead>
