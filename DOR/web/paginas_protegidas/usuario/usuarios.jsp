@@ -26,12 +26,12 @@
                     <tr class="text-center">
                         <td>${usuario.email}</td>
                         <td style="width: 5%;">
-                            <a href="../controller?tarefa=PreparaEditarUsuario&usuarioEditar=${usuario.email}" class="btn btn-warning">
+                            <a href="../../controller?tarefa=PreparaEditarUsuario&usuarioEditar=${usuario.email}" class="btn btn-warning">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a> 
                         </td>
                         <td style="width: 5%;">
-                            <a href="../controller?tarefa=PreparaRemoverUsuario&usuarioRemover=${usuario.email}" class="btn btn-danger">
+                            <a href="../../controller?tarefa=PreparaRemoverUsuario&usuarioRemover=${usuario.email}" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </a> 
                         </td>

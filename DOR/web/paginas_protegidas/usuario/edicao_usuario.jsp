@@ -8,13 +8,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>DOR</title>
     </head>
     <body>
         
-        <c:import url="template.jsp"/>
+        <c:import url="../template.jsp"/>
         <div class="row">
             <div class="container container-fluid">
                 <div class="panel panel-primary  margem_form col-md-offset-2">
@@ -22,7 +23,7 @@
                         <label>Editar usuario</label>
                     </div>
                     <div class="panel-body">
-                        <form method="post" action="../controller?tarefa=EditarUsuario&usuarioId=${usuarioEditar.id}">
+                        <form method="post" action="../../controller?tarefa=EditarUsuario&usuarioId=${usuarioEditar.id}">
                             <div class ="input-group">
                                 <span class="input-group-addon">@</span>
                                 <input name="email" type ="email" class="form-control" required="true" placeholder ="email" value="${usuarioEditar.email}"/>
@@ -45,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <script src="../js/jquery.js"></script>
+        <script src="../../js/jquery.js"></script>
         <script>
             $('#trocar_senha').on('click' , function (){
                 var checado = document.getElementById("trocar_senha").checked;
