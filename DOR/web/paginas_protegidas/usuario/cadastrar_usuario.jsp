@@ -9,8 +9,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../css/index.css">
         <title>DOR</title>
     </head>
     <body>
@@ -39,9 +37,6 @@
                 </div>
             </div>
         </div>
-        
-        <script src="../../js/jquery.js"></script>
-        <script src="../../bootstrap/js/bootstrap.min.js"></script>
         <script>
             $('#senha').on('keyup' , function (){
                 var senha = $('#senha').val();
