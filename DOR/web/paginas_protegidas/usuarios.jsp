@@ -29,7 +29,7 @@
                             </a> 
                         </td>
                         <td style="width: 5%;">
-                            <a href="../controller?tarefa=RemoverUsuario?usuario=${usuario.email}" class="btn btn-danger">
+                            <a href="../controller?tarefa=PreparaRemoverUsuario&usuarioRemover=${usuario.email}" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </a> 
                         </td>
