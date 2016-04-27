@@ -94,12 +94,21 @@ public class UsuarioDAOTest {
         }
     }*/
     
-    @Test
+    /*@Test
     public void testePegaId(){
         Usuario usuario = new Usuario();
         usuario.setEmail("anderson@siva.com");
         long id = new UsuarioDAO().pegaId(usuario);
         System.out.println(id);
+    }*/
+    
+    @Test
+    public void testaEdita(){
+        Usuario usuario = new Usuario();
+        usuario.setId(3);
+        usuario.setEmail("urijah.faber@alpha.com");
+        usuario.setSenha("4321");
+        new UsuarioDAO().edita(usuario, false);
     }
     
 }

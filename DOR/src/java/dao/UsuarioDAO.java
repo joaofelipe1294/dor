@@ -10,6 +10,7 @@ import criptografia.CriptografiaMD5;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelos.Usuario;
@@ -172,5 +173,48 @@ public class UsuarioDAO {
             throw new RuntimeException();
         }
     }
+    
+    public void edita(Usuario usuario , boolean trocarSenha){
+        try (Connection con = new ConnectionFactory().getConnection()){
+            con.setAutoCommit(false);
+            if (trocarSenha){
+                trocaEmailESenha(usuario , con);
+            }else{
+                trocaApenasEmail(usuario , con);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void trocaEmailESenha(Usuario usuario , Connection con) throws SQLException{
+        String sql = "update usuario set email = ? , senha = ? where usuario_id = ?";
+        try (PreparedStatement stmt = con.prepareStatement(sql)){
+            stmt.setString(1, usuario.getEmail());
+            String senhaCriptografada = new CriptografiaMD5().criptografa(usuario.getSenha());
+            stmt.setString(2, senhaCriptografada);
+            stmt.setLong(3, usuario.getId());
+            stmt.execute();
+            con.commit();
+        } catch (Exception e) {
+            con.rollback();
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
+    private void trocaApenasEmail(Usuario usuario , Connection con) throws SQLException{
+        String sql = "update usuario set email = ? where usuario_id = ?";
+        try (PreparedStatement stmt = con.prepareStatement(sql)){
+            stmt.setString(1, usuario.getEmail());
+            stmt.setLong(2, usuario.getId());
+            stmt.execute();
+            con.commit();
+        } catch (Exception e) {
+            con.rollback();
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }   
     
 }
