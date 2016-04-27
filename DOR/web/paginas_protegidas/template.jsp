@@ -10,22 +10,22 @@
     <head>
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>DOR</title>
     </head>
     <body>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                  <a class="navbar-brand" href="usuario_logado.jsp">DOR</a>
+                    <a class="navbar-brand" href="<c:url value="/paginas_protegidas/usuario_logado.jsp" context="/DOR"/>">DOR</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="usuario/novo_usuario.jsp">Novo</a></li>
+                                <li><a href="<c:url value="/paginas_protegidas/usuario/cadastrar_usuario.jsp" context="/DOR"/>">Novo</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../controller?tarefa=PreparaListarUsuarios">Lista</a></li>
+                                <li><a href="<c:url value="/controller?tarefa=PreparaListarUsuarios" context="/DOR"/>">Lista</a></li>
                             </ul>
                         </li>
                         <li class="dropdown active">
@@ -38,7 +38,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="../controller?tarefa=Logout">Logout</a></li>
+                        <li class="active"><a href="<c:url value="/controller?tarefa=Logout" context="/DOR"/>">Logout</a></li>
                     </ul>
                 </div>
             </div>
