@@ -9,6 +9,7 @@ import dao.UsuarioDAO;
 import interfaces.Tarefa;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelos.Usuario;
 
 /**
@@ -21,12 +22,25 @@ public class RemoverUsuario implements Tarefa{
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
         String email = req.getParameter("email");
         String emailRepetido = req.getParameter("email_repetido");
-        if(email.equals(emailRepetido)){
-            Usuario usuario = new Usuario();
-            usuario.setEmail(email);
-            new UsuarioDAO().remove(usuario);
+        HttpSession sessao = req.getSession();
+        try {
+            if(email.equals(emailRepetido)){
+                Usuario usuario = new Usuario();
+                usuario.setEmail(email);
+                new UsuarioDAO().remove(usuario);
+            }
+            //sessao.removeAttribute("erro");
+            //sessao.setAttribute("sucesso", "Usuario removido com sucesso !");
+            req.removeAttribute("erro");
+            req.setAttribute("sucesso", "Usuario removido com sucesso !");
+            return "paginas_protegidas/usuario_logado.jsp";
+        } catch (Exception e) {
+            //resp.removeAttribute("sucesso");
+            //resp.setAttribute("erro", "Erro ao remover usuario !");
+            req.removeAttribute("sucesso");
+            req.setAttribute("erro", "Erro ao remover usuario !");
+            return "paginas_protegidas/usuario_logado.jsp";
         }
-        return "paginas_protegidas/usuario_logado.jsp";
     }
     
 }
