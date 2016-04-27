@@ -24,7 +24,7 @@
                     <div class="panel-body">
                         <form method="post" action="../controller?tarefa=RemoverUsuario">
                             <div class ="form-group">
-                                <input name="email" id="email" type ="email" class="form-control disabled" required="true" placeholder ="email" value="${usuarioRemover.email}" disabled="true" />
+                                <input name="email" id="email" type ="email" class="form-control disabled" required="true" placeholder ="email" value="${usuarioRemover.email}" readonly="true" />
                             </div>
                             <div class ="form-group margem_input">        
                                 <input name="email_repetido" id="email_repetido" type="email" class="form-control" required="true" placeholder ="Repita o email"/>
