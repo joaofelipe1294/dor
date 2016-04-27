@@ -6,12 +6,13 @@
 package tarefas;
 
 import dao.UsuarioDAO;
+import enums.TiposDeMensagem;
 import interfaces.Tarefa;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 import modelos.Usuario;
+import utils.GerenciadoraDeMensagens;
 
 /**
  *
@@ -30,7 +31,7 @@ public class Login implements Tarefa{
             sessao.setAttribute("usuario", usuario.getEmail());
             return "paginas_protegidas/usuario_logado.jsp";
         }else{
-            return "index.jsp";
+            return "erro_autenticacao.jsp";
         }
     }
     
