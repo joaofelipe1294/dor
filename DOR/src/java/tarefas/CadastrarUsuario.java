@@ -28,13 +28,13 @@ public class CadastrarUsuario implements Tarefa{
         try {
             if(usuario.getSenha().equals(senhaRepetida)){
                 new UsuarioDAO().cadastra(usuario);
-                new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.SUCESSO,"Usuario cadastrado com sucesso !" , req);
+                new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.SUCESSO,"Usuario cadastrado com sucesso !" );
                 return "paginas_protegidas/usuario_logado.jsp";
             }else{
                 throw new IllegalArgumentException();
             }
         } catch (Exception e) {
-            new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.ERRO,"Erro ao cadastrar !" , req);
+            new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.ERRO,"Erro ao cadastrar !");
             return "paginas_protegidas/usuario_logado.jsp";
         }
     }

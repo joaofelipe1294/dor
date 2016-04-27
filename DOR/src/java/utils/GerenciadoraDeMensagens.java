@@ -18,6 +18,10 @@ public class GerenciadoraDeMensagens {
     private String mensagem;   
     private HttpServletRequest request;
 
+    public GerenciadoraDeMensagens(HttpServletRequest request) {
+        this.request = request;
+    }
+
     public TiposDeMensagem getTipo() {
         return tipo;
     }
@@ -42,7 +46,7 @@ public class GerenciadoraDeMensagens {
         this.request = request;
     }
     
-    public void adicionaMensagem(TiposDeMensagem tipo , String mensagem , HttpServletRequest request){
+    public void adicionaMensagem(TiposDeMensagem tipo , String mensagem){
         HttpSession sessao = request.getSession();
         sessao.setAttribute(tipo.getValor(), mensagem);
         if(tipo == TiposDeMensagem.ERRO){

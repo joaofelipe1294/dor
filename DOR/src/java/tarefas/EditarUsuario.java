@@ -38,10 +38,10 @@ public class EditarUsuario implements Tarefa{
                 trocarSenha = false;
             }
             new UsuarioDAO().edita(usuario, trocarSenha);
-            new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.SUCESSO, "Usuario editado com sucesso !", req);
+            new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.SUCESSO, "Usuario editado com sucesso !");
             return "paginas_protegidas/usuario_logado.jsp";
         } catch (Exception e) {
-            new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.ERRO, "Erro ao editar !", req);
+            new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.ERRO, "Erro ao editar !");
             return "paginas_protegidas/usuario_logado.jsp";
         }
     }

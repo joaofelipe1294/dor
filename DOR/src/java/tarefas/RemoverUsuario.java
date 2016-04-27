@@ -29,10 +29,10 @@ public class RemoverUsuario implements Tarefa{
                 usuario.setEmail(email);
                 new UsuarioDAO().remove(usuario);
             }
-            new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.SUCESSO, "Usuario removido com sucesso !", req);
+            new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.SUCESSO, "Usuario removido com sucesso !");
             return "paginas_protegidas/usuario_logado.jsp";
         } catch (Exception e) {
-            new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.ERRO,  "Erro ao remover usuario !", req);
+            new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.ERRO,  "Erro ao remover usuario !");
             return "paginas_protegidas/usuario_logado.jsp";
         }
     }
