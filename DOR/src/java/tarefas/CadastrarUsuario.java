@@ -6,11 +6,12 @@
 package tarefas;
 
 import dao.UsuarioDAO;
+import enums.TiposDeMensagem;
 import interfaces.Tarefa;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import modelos.Usuario;
+import utils.GerenciadoraDeMensagens;
 
 /**
  *
@@ -24,19 +25,16 @@ public class CadastrarUsuario implements Tarefa{
         usuario.setEmail(req.getParameter("email"));
         usuario.setSenha(req.getParameter("senha"));
         String senhaRepetida = req.getParameter("senha_repetida");
-        HttpSession sessao = req.getSession();
         try {
             if(usuario.getSenha().equals(senhaRepetida)){
                 new UsuarioDAO().cadastra(usuario);
-                sessao.removeAttribute("erro");
-                sessao.setAttribute("sucesso", "Usuario cadastrado com sucesso !");
+                new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.SUCESSO,"Usuario cadastrado com sucesso !" , req);
                 return "paginas_protegidas/usuario_logado.jsp";
             }else{
                 throw new IllegalArgumentException();
             }
         } catch (Exception e) {
-            sessao.removeAttribute("sucesso");
-            sessao.setAttribute("erro", "Erro ao cadastrar !");
+            new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.ERRO,"Erro ao cadastrar !" , req);
             return "paginas_protegidas/usuario_logado.jsp";
         }
     }

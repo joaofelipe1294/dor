@@ -6,11 +6,12 @@
 package tarefas;
 
 import dao.UsuarioDAO;
+import enums.TiposDeMensagem;
 import interfaces.Tarefa;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import modelos.Usuario;
+import utils.GerenciadoraDeMensagens;
 
 /**
  *
@@ -25,7 +26,6 @@ public class EditarUsuario implements Tarefa{
         usuario.setId(usuarioId);
         usuario.setEmail(req.getParameter("email"));
         boolean trocarSenha;
-        HttpSession sessao = req.getSession();
         try {
             if (req.getParameter("trocar_senha") != null){
             usuario.setSenha(req.getParameter("senha"));
@@ -38,12 +38,10 @@ public class EditarUsuario implements Tarefa{
                 trocarSenha = false;
             }
             new UsuarioDAO().edita(usuario, trocarSenha);
-            sessao.removeAttribute("erro");
-            sessao.setAttribute("sucesso", "Usuario editado com sucesso !");
+            new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.SUCESSO, "Usuario editado com sucesso !", req);
             return "paginas_protegidas/usuario_logado.jsp";
         } catch (Exception e) {
-            sessao.removeAttribute("sucesso");
-            sessao.setAttribute("erro", "Erro ao editar !");
+            new GerenciadoraDeMensagens().adicionaMensagem(TiposDeMensagem.ERRO, "Erro ao editar !", req);
             return "paginas_protegidas/usuario_logado.jsp";
         }
     }
