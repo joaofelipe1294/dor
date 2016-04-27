@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<c:url value="/bootstrap/css/bootstrap.min.css" context="/DOR"/>">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>DOR</title>
     </head>
@@ -49,7 +49,7 @@
         <c:if test='${sucesso != null}'>
             <div class="alert alert-success" role="alert" display='${sucesso != "null"}'>${sucesso}</div>
         </c:if>
-        <script src="../js/jquery.js"></script>
-        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="<c:url value="/js/jquery.js" context="/DOR"/>"></script>
+        <script src="<c:url value="/bootstrap/js/bootstrap.min.js" context="/DOR"/>"></script>
     </body>
 </html>

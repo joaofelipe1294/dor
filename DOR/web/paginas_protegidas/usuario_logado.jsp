@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>DOR</title>
     </head>
