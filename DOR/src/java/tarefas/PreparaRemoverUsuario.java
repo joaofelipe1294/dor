@@ -24,7 +24,7 @@ public class PreparaRemoverUsuario implements Tarefa{
         usuario.setEmail(req.getParameter("usuarioRemover"));
         HttpSession sessao = req.getSession();
         sessao.setAttribute("usuarioRemover", usuario);
-        return "paginas_protegidas/remocao_usuario.jsp";
+        return "paginas_protegidas/usuario/remocao_usuario.jsp";
     }
     
 }
