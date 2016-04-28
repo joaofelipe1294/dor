@@ -34,7 +34,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="<c:url value="/paginas_protegidas/empresa/cadastrar_empresa.jsp" context="/DOR"/>">Nova</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../controller?tarefa=ListarUsuarios">Lista</a></li>
+                                <li><a href="<c:url value="/controller?tarefa=PreparaListarEmpresas" context="/DOR"/>">Lista</a></li>
                             </ul>
                         </li>
                     </ul>
