@@ -7,7 +7,7 @@ create table if not exists usuario (
 
 create table if not exists empresa (
 	empresa_id serial ,
-	razao_social varchar (255) not null ,
+	razao_social varchar (255) unique  not null ,
 	cnpj varchar (255) unique not null ,
 	constraint pk_empresa primary key (empresa_id)
 );
