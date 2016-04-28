@@ -17,7 +17,7 @@ import utils.GerenciadoraDeMensagens;
  *
  * @author joaolopes
  */
-public class CadastarEmpresa implements Tarefa{
+public class CadastrarEmpresa implements Tarefa{
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
