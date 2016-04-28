@@ -120,7 +120,7 @@ public class EmpresaDAO {
         }
     }
     
-    public void remover(Empresa empresa){
+    public void remove(Empresa empresa){
         String sql = "delete from empresa where empresa_id = ?";
         try (Connection con = new ConnectionFactory().getConnection()){
             con.setAutoCommit(false);

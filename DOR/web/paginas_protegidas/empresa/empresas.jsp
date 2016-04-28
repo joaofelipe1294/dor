@@ -33,7 +33,7 @@
                             </a> 
                         </td>
                         <td class="largura_5">
-                            <a href="<c:url value="/controller?tarefa=PreparaRemoverUsuario&usuarioRemover=${empresa.id}" context="/DOR"/>" class="btn btn-danger">
+                            <a href="<c:url value="/controller?tarefa=PreparaRemoverEmpresa&empresaRemover=${empresa.id}" context="/DOR"/>" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </a> 
                         </td>
