@@ -1,3 +1,5 @@
+/* funcoes genericas */
+
 function mascara_cnpj (nome_campo){
     var campo = $(nome_campo);
     var valor_atual = campo.val();
@@ -10,10 +12,11 @@ function mascara_cnpj (nome_campo){
     }
 }
 
-function sao_iguais(campo_base , campo_copia , botao){
+
+function sao_iguais(campo_base , campo_copia , nome_botao){
     var base = $(campo_base);
     var copia = $(campo_copia);
-    var botao = $(botao);
+    var botao = $(nome_botao);
     if(base.val() === copia.val()){
         botao.prop("disabled" , false);
     }else{

@@ -33,16 +33,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            $('#email_repetido').on('keyup' , function (){
-                var email = $('#email').val();
-                var emaeil_repetido = $('#email_repetido').val();
-                if(email === emaeil_repetido){
-                    $('#botao').prop("disabled" , false);
-                }else{
-                    $('#botao').prop("disabled" , true);
-                }
-            });
-        </script>                 
+        <script src="<c:url value="/js/funcoes_usuario.js" context="/DOR"/>"></script>
     </body>
 </html>

@@ -35,7 +35,7 @@
                                     <input name="senha" id="senha" type="password" class="form-control" placeholder ="senha"/>
                                 </div>
                                 <div class ="form-group margem_input">        
-                                    <input name="senha_repetida" id="repeticao" type="password" class="form-control" placeholder ="repita a senha"/>
+                                    <input name="senha_repetida" id="senha_repetida" type="password" class="form-control" placeholder ="repita a senha"/>
                                 </div>
                             </div>
                             <button id="botao" class="btn btn-warning">Editar</button>
@@ -44,36 +44,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            $('#trocar_senha').on('click' , function (){
-                var checado = document.getElementById("trocar_senha").checked;
-                if(checado){
-                    $('#senhas').show();
-                    $('#botao').prop("disabled" , true);
-                }else{
-                    $('#senhas').hide();
-                    $('#botao').removeProp("disabled");
-                }
-            });
-            $('#senha').on('keyup' , function (){
-                var senha = $('#senha').val();
-                var repeticao = $('#repeticao').val();
-                if (senha === repeticao){    
-                    $('#botao').prop('disabled' , false);
-                }else{
-                    $('#botao').prop('disabled' , true);
-                }
-            });
-            $('#repeticao').on('keyup' , function (){
-                var senha = $('#senha').val();
-                var repeticao = $('#repeticao').val();
-                if (senha === repeticao){
-                    $('#botao').prop('disabled' , false);
-                }else{
-                    $('#botao').prop('disabled' , true);
-                }
-            });
-            </script>
-                            
+        <script src="<c:url value="/js/funcoes_usuario.js" context="/DOR"/>"></script>            
     </body>
 </html>
