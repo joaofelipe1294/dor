@@ -39,4 +39,10 @@ public class Empresa implements Serializable{
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+
+    @Override
+    public String toString() {
+        return "Empresa{" + "id=" + id + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + '}';
+    }
+    
 }

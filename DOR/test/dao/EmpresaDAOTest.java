@@ -41,7 +41,7 @@ public class EmpresaDAOTest {
     /**
      * Test of cadastra method, of class EmpresaDAO.
      */
-    @Test
+    /*@Test
     public void testCadastra() {
         Empresa empresa = new Empresa();
         empresa.setCnpj("111111111111");
@@ -52,6 +52,12 @@ public class EmpresaDAOTest {
         } catch (Exception e) {
             fail();
         }
+    }*/
+    
+    @Test
+    public void testLista(){
+        for (Empresa empresa : new EmpresaDAO().lista())
+            System.out.println(empresa);
     }
     
 }
