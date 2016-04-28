@@ -54,10 +54,25 @@ public class EmpresaDAOTest {
         }
     }*/
     
-    @Test
+    /*@Test
     public void testLista(){
         for (Empresa empresa : new EmpresaDAO().lista())
             System.out.println(empresa);
+    }*/
+    
+    @Test 
+    public void testEditar(){
+        Empresa empresa = new Empresa();
+        empresa.setId(1);
+        empresa.setRazaoSocial("Sun");
+        empresa.setCnpj("666666666666");
+        try {
+            new EmpresaDAO().edita(empresa);
+            assertTrue(true);
+        } catch (Exception e) {
+            fail();
+        }
     }
+    
     
 }

@@ -99,4 +99,24 @@ public class EmpresaDAO {
         }
     }
     
+    public void edita(Empresa empresa){
+        String sql = "update empresa set razao_social = ? , cnpj = ? where empresa_id = ?";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            con.setAutoCommit(false);
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, empresa.getRazaoSocial());
+                stmt.setString(2, empresa.getCnpj());
+                stmt.setLong(3, empresa.getId());
+                stmt.execute();
+                con.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }
