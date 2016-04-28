@@ -15,7 +15,7 @@
         <c:import url="../template.jsp"/>
         <div class="row">
             <div class="container container-fluid">
-                <div class="panel panel-danger  margem_form col-md-offset-2">
+                <div class="panel panel-primary  margem_form col-md-offset-2">
                     <div class="panel-heading">
                         <label>Remover usuario</label>
                     </div>

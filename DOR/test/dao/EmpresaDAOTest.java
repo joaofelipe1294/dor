@@ -80,7 +80,7 @@ public class EmpresaDAOTest {
         Empresa empresa = new Empresa();
         empresa.setId(5);
         try {
-            new EmpresaDAO().remover(empresa);
+            new EmpresaDAO().remove(empresa);
             assertTrue(true);
         } catch (Exception e) {
             fail();
