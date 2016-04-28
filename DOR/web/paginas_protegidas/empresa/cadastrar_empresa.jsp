@@ -33,17 +33,10 @@
                 </div>
             </div>
         </div>
+        <script src="<c:url value="/js/funcoes_empresa.js" context="/DOR"/>"></script>
         <script>
             $('#cnpj').on('keyup' , function (){
-                var cnpj = $('#cnpj').val();
-                var campo_cnpj = $('#cnpj');
-                if(cnpj.length === 2 || cnpj.length === 6){
-                    campo_cnpj.val(cnpj += '.');
-                }else if (cnpj.length === 10){
-                    campo_cnpj.val(cnpj += '/');
-                }else if (cnpj.length === 15){
-                    campo_cnpj.val(cnpj += '-');
-                }
+                mascara_cnpj('#cnpj');
             });
         </script>
     </body>
