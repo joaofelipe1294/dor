@@ -9,10 +9,37 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>DOR</title>
     </head>
     <body>
         <c:import url="../template.jsp"/>
-        <h1>Hello World!</h1>
+        <div class="container-fluid thumbnail">
+            <table class="table table-hover table-striped table-responsive col-md-9">
+                <thead>
+                    <th class="text-center">
+                        <label>Razão social</label>
+                    </th>
+                    <th class="text-center">
+                        <label>CNPJ</label>
+                    </th>
+                </thead>
+                <c:forEach var="empresa" items="${listaEmpresas}">
+                    <tr class="text-center">
+                        <td>${empresa.razaoSocial}</td>
+                        <td>${empresa.cnpj}</td>
+                        <td class="largura_5">
+                            <a href="<c:url value="/controller?tarefa=PreparaEditarUsuario&usuarioEditar=${empresa.id}" context="/DOR"/>" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a> 
+                        </td>
+                        <td class="largura_5">
+                            <a href="<c:url value="/controller?tarefa=PreparaRemoverUsuario&usuarioRemover=${empresa.id}" context="/DOR"/>" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a> 
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </body>
 </html>

@@ -40,7 +40,8 @@ public class EmpresaDAO {
     }
     
     public List<Empresa> lista(){
-        String sql = "select razao_social ,\n" +
+        String sql = "select empresa_id ,\n" +
+                     "       razao_social ,\n" +
                      "       cnpj  \n" +
                      "from empresa";
         try (Connection con = new ConnectionFactory().getConnection()){
@@ -49,6 +50,7 @@ public class EmpresaDAO {
                     List<Empresa> listaEmpresas = new ArrayList<>();
                     while(rs.next()){
                         Empresa empresa = new Empresa();
+                        empresa.setId(rs.getLong("empresa_id"));
                         empresa.setCnpj(rs.getString("cnpj"));
                         empresa.setRazaoSocial(rs.getString("razao_social"));
                         listaEmpresas.add(empresa);

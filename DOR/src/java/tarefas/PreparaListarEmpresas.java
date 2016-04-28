@@ -23,7 +23,7 @@ public class PreparaListarEmpresas implements Tarefa{
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
         List<Empresa> listaEmpresas = new EmpresaDAO().lista();
         HttpSession sessao = req.getSession();
-        sessao.setAttribute("lista_empresas", listaEmpresas);
+        sessao.setAttribute("listaEmpresas", listaEmpresas);
         return "paginas_protegidas/empresa/empresas.jsp";
     }
     
