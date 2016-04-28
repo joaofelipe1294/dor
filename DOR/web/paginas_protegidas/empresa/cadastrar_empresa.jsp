@@ -34,10 +34,5 @@
             </div>
         </div>
         <script src="<c:url value="/js/funcoes_empresa.js" context="/DOR"/>"></script>
-        <script>
-            $('#cnpj').on('keyup' , function (){
-                mascara_cnpj('#cnpj');
-            });
-        </script>
     </body>
 </html>

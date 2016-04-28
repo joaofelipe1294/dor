@@ -36,28 +36,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            $('#cnpj_repetido').on('keyup' , function (){
-                var cnpj = $('#cnpj_repetido').val();
-                var campo_cnpj = $('#cnpj_repetido');
-                if(cnpj.length === 2 || cnpj.length === 6){
-                    campo_cnpj.val(cnpj += '.');
-                }else if (cnpj.length === 10){
-                    campo_cnpj.val(cnpj += '/')
-                }else if (cnpj.length === 15){
-                    campo_cnpj.val(cnpj += '-');
-                }
-            });
-            
-            $('#cnpj_repetido').on('keyup' , function (){
-                var cnpj = $('#cnpj').val();
-                var cnpj_repetido = $('#cnpj_repetido').val();
-                if(cnpj === cnpj_repetido){
-                    $('#botao').prop("disabled" , false);
-                }else{
-                    $('#botao').prop("disabled" , true);
-                }
-            });
-        </script>
+        <script src="<c:url value="/js/funcoes_empresa.js" context="/DOR"/>"></script>
     </body>
 </html>
