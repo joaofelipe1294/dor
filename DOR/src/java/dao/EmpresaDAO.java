@@ -70,4 +70,33 @@ public class EmpresaDAO {
         }
     }
     
+    public Empresa pega(Empresa empresa){
+        String sql = "select razao_social ,\n" +
+                     "       cnpj  \n" +
+                     "from empresa\n" +
+                     "where empresa_id = ?;";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setLong(1, empresa.getId());
+                try (ResultSet rs = stmt.executeQuery()){
+                    if(rs.next()){
+                        empresa.setCnpj(rs.getString("cnpj"));
+                        empresa.setRazaoSocial(rs.getString("razao_social"));
+                        return empresa;
+                    }
+                    throw new IllegalArgumentException("Nenhum resultado encontrado , id invalido !");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }

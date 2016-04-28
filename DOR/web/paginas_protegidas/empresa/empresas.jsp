@@ -22,13 +22,15 @@
                     <th class="text-center">
                         <label>CNPJ</label>
                     </th>
+                    <th></th>
                 </thead>
                 <c:forEach var="empresa" items="${listaEmpresas}">
                     <tr class="text-center">
                         <td>${empresa.razaoSocial}</td>
                         <td>${empresa.cnpj}</td>
+                        <td>${empresa.id}</td>
                         <td class="largura_5">
-                            <a href="<c:url value="/controller?tarefa=PreparaEditarUsuario&usuarioEditar=${empresa.id}" context="/DOR"/>" class="btn btn-warning">
+                            <a href="<c:url value="/controller?tarefa=PreparaEditarEmpresa&empresaEditar=${empresa.id}" context="/DOR"/>" class="btn btn-warning">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a> 
                         </td>
