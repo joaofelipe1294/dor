@@ -5,7 +5,6 @@
  */
 package tarefas;
 
-import dao.UsuarioDAO;
 import interfaces.Tarefa;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

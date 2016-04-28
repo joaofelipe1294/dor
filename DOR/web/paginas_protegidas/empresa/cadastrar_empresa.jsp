@@ -40,7 +40,7 @@
                 if(cnpj.length === 2 || cnpj.length === 6){
                     campo_cnpj.val(cnpj += '.');
                 }else if (cnpj.length === 10){
-                    campo_cnpj.val(cnpj += '/')
+                    campo_cnpj.val(cnpj += '/');
                 }else if (cnpj.length === 15){
                     campo_cnpj.val(cnpj += '-');
                 }
