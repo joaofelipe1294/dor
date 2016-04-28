@@ -33,7 +33,7 @@ public class RemoverUsuario implements Tarefa{
             return "paginas_protegidas/usuario_logado.jsp";
         } catch (Exception e) {
             new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.ERRO,  "Erro ao remover usuario !");
-            return "paginas_protegidas/usuario_logado.jsp";
+            return "paginas_protegidas/usuario/remover_usuario.jsp";
         }
     }
     
