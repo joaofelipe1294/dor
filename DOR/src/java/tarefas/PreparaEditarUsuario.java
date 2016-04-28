@@ -26,7 +26,7 @@ public class PreparaEditarUsuario implements Tarefa{
         usuario.setId(new UsuarioDAO().pegaId(usuario));
         HttpSession sessao = req.getSession();
         sessao.setAttribute("usuarioEditar", usuario);
-        return "paginas_protegidas/usuario/edicao_usuario.jsp";
+        return "paginas_protegidas/usuario/editar_usuario.jsp";
     }
     
 }
