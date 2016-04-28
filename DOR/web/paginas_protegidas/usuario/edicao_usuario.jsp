@@ -38,7 +38,7 @@
                                     <input name="senha_repetida" id="repeticao" type="password" class="form-control" placeholder ="repita a senha"/>
                                 </div>
                             </div>
-                            <button id="botao" class="btn btn-primary">Editar</button>
+                            <button id="botao" class="btn btn-warning">Editar</button>
                         </form>
                     </div>
                 </div>
