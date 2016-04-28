@@ -60,7 +60,7 @@ public class EmpresaDAOTest {
             System.out.println(empresa);
     }*/
     
-    @Test 
+    /*@Test 
     public void testEditar(){
         Empresa empresa = new Empresa();
         empresa.setId(1);
@@ -72,7 +72,20 @@ public class EmpresaDAOTest {
         } catch (Exception e) {
             fail();
         }
-    }
+    }*/
     
+    
+    @Test
+    public void testeRemover(){
+        Empresa empresa = new Empresa();
+        empresa.setId(5);
+        try {
+            new EmpresaDAO().remover(empresa);
+            assertTrue(true);
+        } catch (Exception e) {
+            fail();
+            e.printStackTrace();
+        }
+    }
     
 }

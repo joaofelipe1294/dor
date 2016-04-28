@@ -110,6 +110,26 @@ public class EmpresaDAO {
                 stmt.execute();
                 con.commit();
             } catch (Exception e) {
+                con.rollback();
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
+    public void remover(Empresa empresa){
+        String sql = "delete from empresa where empresa_id = ?";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            con.setAutoCommit(false);
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setLong(1, empresa.getId());
+                stmt.execute();
+                con.commit();
+            } catch (Exception e) {
+                con.rollback();
                 e.printStackTrace();
                 throw new RuntimeException();
             }
