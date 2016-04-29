@@ -28,16 +28,9 @@ public class UsuarioResource {
     @Context
     private UriInfo context;
 
-    /**
-     * Creates a new instance of UsuarioResource
-     */
     public UsuarioResource() {
     }
 
-    /**
-     * Retrieves representation of an instance of webServices.UsuarioResource
-     * @return an instance of java.lang.String
-     */
     @GET
     @Path("/{email}")
     @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
@@ -46,13 +39,5 @@ public class UsuarioResource {
         String json = new Gson().toJson(jaCadastrado);
         return Response.ok(json).build();
     }
-
-    /**
-     * PUT method for updating or creating an instance of UsuarioResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
-    }
+    
 }

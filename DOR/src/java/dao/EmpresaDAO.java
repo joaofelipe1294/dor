@@ -139,4 +139,68 @@ public class EmpresaDAO {
         }
     }
     
+    public boolean verificaRazaoSocial(String razaoSocial){
+        String sql = "select count(1) as \"aparicoes\"\n" +
+                     "from empresa\n" +
+                     "where razao_social = ?;";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, razaoSocial);
+                try (ResultSet rs = stmt.executeQuery()){
+                    if(rs.next()){
+                        int aparicoes = rs.getInt("aparicoes");
+                        if(aparicoes > 0){
+                            return true;
+                        }else{
+                            return false;
+                        }
+                    }else{
+                        throw new IllegalArgumentException();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
+    public boolean verificaCnpj(String cnpj){
+        String sql = "select count(1) as \"aparicoes\"\n" +
+                     "from empresa\n" +
+                     "where cnpj = ?;";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, cnpj);
+                try (ResultSet rs = stmt.executeQuery()){
+                    if(rs.next()){
+                        int aparicoes = rs.getInt("aparicoes");
+                        if(aparicoes > 0){
+                            return true;
+                        }else{
+                            return false;
+                        }
+                    }else{
+                        throw new IllegalArgumentException();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }
