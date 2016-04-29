@@ -21,9 +21,9 @@
                     </div>
                     <div class="panel-body">
                         <form method="post" action="<c:url value="/controller?tarefa=CadastrarUsuario" context="/DOR"/>">
-                            <div class ="input-group">
+                            <div class ="input-group" id="div_email">
                                 <span class="input-group-addon">@</span>
-                                <input name="email" type ="email" class="form-control" required="true" placeholder ="email"/>
+                                <input id="email" name="email" type ="email" class="form-control" required="true" placeholder ="email"/>
                             </div>
                             <div class ="form-group margem_input">        
                                 <input name="senha" id="senha" type="password" class="form-control" required="true" placeholder ="senha"/>

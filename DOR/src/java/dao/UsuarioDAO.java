@@ -217,4 +217,35 @@ public class UsuarioDAO {
         }
     }   
     
+    public boolean verificaEmail(String email){
+        String sql = "select count(1) as \"aparicoes\"\n" +
+                     "from usuario\n" +
+                     "where email = ?";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, email);
+                try (ResultSet rs = stmt.executeQuery()){
+                    int numeroAparicoes = 0;
+                    if(rs.next()){
+                        numeroAparicoes = rs.getInt("aparicoes");
+                    }
+                    if (numeroAparicoes > 0){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }
