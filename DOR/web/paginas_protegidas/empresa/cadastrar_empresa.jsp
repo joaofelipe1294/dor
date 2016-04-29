@@ -34,5 +34,6 @@
             </div>
         </div>
         <script src="<c:url value="/js/funcoes_empresa.js" context="/DOR"/>"></script>
+        <script src="<c:url value="/js/cadastrar_empresa.js" context="/DOR"/>"></script>
     </body>
 </html>
