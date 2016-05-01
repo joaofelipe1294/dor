@@ -40,7 +40,9 @@
                             <div class="form-group">
                                 <label for="empresa">Empresa</label>
                                 <select id="empresa" class="form-control">
-                                    dados das empresas !
+                                    <c:forEach var="empresa" items="${empresas}">
+                                        <option value="${emrpesa.id}">${empresa.razaoSocial}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <button id="botao" class="btn btn-primary" disabled="false">Cadastrar</button>
@@ -63,13 +65,13 @@
             
             
             $('#radio_pj').change(function (){
-                $('#div_cnpj').fadeToggle();
-                $('#div_cpf').fadeToggle();
+                $('#div_cnpj').toggle();
+                $('#div_cpf').toggle();
             });
             
             $('#radio_pf').change(function (){
-                $('#div_cnpj').fadeToggle();
-                $('#div_cpf').fadeToggle();
+                $('#div_cnpj').toggle();
+                $('#div_cpf').toggle();
             });
             
         </script>
