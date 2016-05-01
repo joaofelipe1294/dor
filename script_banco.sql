@@ -15,13 +15,11 @@ create table if not exists empresa (
 create table if not exists cliente (
 	cliente_id serial ,
 	nome varchar (255) not null ,
-	cpf varchar (255) default null , 
-	cnpj varchar (255) default null ,
+	cpf varchar (255) unique  default null , 
+	cnpj varchar (255) unique  default null ,
 	ativo boolean default true ,
 	constraint  pk_cliente primary key (cliente_id)
 );
-
-
 
 create table if not exists registro (
         registro_id serial ,
