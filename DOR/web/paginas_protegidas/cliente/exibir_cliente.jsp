@@ -33,13 +33,13 @@
                                 <input name="cpf" id="cpf" class="form-control" placeholder ="cpf" pattern="[0-9*.-]*" maxlength="14" value="${clienteSelecionado.cpf}" disabled="true"/>
                             </div>
                         </c:if>
-                        <c:if test="${clienteSelecionado.ativo}">
+                        <c:if test="${clienteSelecionado.ativo == false}">
                             <div class="alert alert-danger" role="alert">Cliente Negativo </div>
                             <button class="btn btn-success">Limpar registro</button>
                         </c:if>
-                        <c:if test="${clienteSelecionado.ativo == false}">
+                        <c:if test="${clienteSelecionado.ativo == true}">
                             <div class="alert alert-success" role="alert">Cliente ok</div>
-                            <form method="post" >
+                            <form method="post" action="<c:url value="/controller?tarefa=NegativarCliente" context="/DOR"/>">
                                 <div class="form-group">
                                     <select class="form-control" name="empresa">
                                         <c:forEach items="${empresas}" var="empresa">
