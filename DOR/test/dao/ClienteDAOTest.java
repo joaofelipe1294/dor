@@ -47,8 +47,8 @@ public class ClienteDAOTest {
         cliente.setNome("João Felipe Lopes de Sus");
         cliente.setCpf("089.220.379-03");
         try {
-            new ClienteDAO().cadastra(cliente);
-            assertTrue(true);
+            cliente = new ClienteDAO().cadastra(cliente);
+            assertEquals(1, cliente.getId());
         } catch (Exception e) {
             fail();
         }

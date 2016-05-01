@@ -18,7 +18,7 @@ import modelos.Cliente;
  */
 public class ClienteDAO {
     
-    public void cadastra(Cliente cliente){
+    public Cliente cadastra(Cliente cliente){
         String sql = "insert into cliente (nome , cpf , cnpj) values (? , ? , ?)";
         try (Connection con = new ConnectionFactory().getConnection()){
             con.setAutoCommit(false);
@@ -28,12 +28,18 @@ public class ClienteDAO {
                 stmt.setString(3, cliente.getCnpj());
                 stmt.execute();
                 con.commit();
-                /*try (ResultSet rs = stmt.getGeneratedKeys()){
+                try (ResultSet rs = stmt.getGeneratedKeys()){
                     if(rs.next()){
-                        
+                        long clienteId = rs.getLong("cliente_id");
+                        cliente.setId(clienteId);
+                        return cliente;
+                    }else{
+                        throw new IllegalArgumentException();
                     }
                 } catch (Exception e) {
-                }*/
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
             } catch (Exception e) {
                 con.rollback();
                 e.printStackTrace();
