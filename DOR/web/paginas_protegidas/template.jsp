@@ -43,16 +43,16 @@
                                 <li><a href="<c:url value="/controller?tarefa=PreparaCadastrarCliente" context="/DOR"/>">Novo</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>
-                                    <form class="navbar-form navbar-left" role="search">
+                                    <form method="post" class="navbar-form navbar-left" role="search" action="<c:url value="/controller?tarefa=BuscaClientePorNome" context="/DOR"/>">
                                         <div class="form-group">
                                             <input name="nome" class="form-control" placeholder="nome">
                                         </div>
-                                        <button type="submit" class="btn btn-default">Pesquisar</button>
+                                        <button class="btn btn-default">Pesquisar</button>
                                     </form>
                                 </li>
                                 <li role="separator" class="divider"></li>
                                 <li>
-                                    <form class="navbar-form navbar-left" role="search">
+                                    <form method="post" class="navbar-form navbar-left" role="search">
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="cpf/cnpj">
                                         </div>
