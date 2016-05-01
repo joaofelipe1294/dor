@@ -21,9 +21,9 @@
                         <label>Cadastro de novo cliente</label>
                     </div>
                     <div class="panel-body">
-                        <form method="post" action="<c:url value="/controller?tarefa=CadastrarEmpresa" context="/DOR"/>">
+                        <form method="post" action="<c:url value="/controller?tarefa=CadastrarCliente" context="/DOR"/>">
                             <div class ="form-group" id="div_razao_social">
-                                <input name="razao_social" id="razao_social" class="form-control" required="true" placeholder ="Nome"/>
+                                <input name="nome" id="razao_social" class="form-control" required="true" placeholder ="Nome"/>
                             </div>
                             <div class="form-group">
                                 <input name="tipo_cliente" id="radio_pj" type="radio" value="pessoa_juridica" checked="true"/>
@@ -32,20 +32,20 @@
                                 <label for="radio_pf">Pessoa física</label>
                             </div>
                             <div class ="form-group margem_input" id="div_cnpj">        
-                                <input name="cnpj" id="cnpj" class="form-control" required="true" placeholder ="cnpj" pattern="[1-9*./-]*" maxlength="18" minlength="18"/>
+                                <input name="cnpj" id="cnpj" class="form-control" placeholder ="cnpj" pattern="[1-9*./-]*" maxlength="18"/>
                             </div>
                             <div class ="form-group margem_input" id="div_cpf" hidden="true">        
-                                <input name="cpf" id="cpf" class="form-control" required="true" placeholder ="cpf" pattern="[1-9*.-]*" maxlength="14" minlength="14"/>
+                                <input name="cpf" id="cpf" class="form-control" placeholder ="cpf" pattern="[1-9*.-]*" maxlength="14"/>
                             </div>
                             <div class="form-group">
                                 <label for="empresa">Empresa</label>
-                                <select id="empresa" class="form-control">
+                                <select name="empresa" id="empresa" class="form-control">
                                     <c:forEach var="empresa" items="${empresas}">
-                                        <option value="${emrpesa.id}">${empresa.razaoSocial}</option>
+                                        <option value="${empresa.id}"> ${empresa.razaoSocial}</option>
                                     </c:forEach>
                                 </select>
                             </div>
-                            <button id="botao" class="btn btn-primary" disabled="false">Cadastrar</button>
+                            <button id="botao" class="btn btn-primary">Cadastrar</button>
                         </form>
                     </div>
                 </div>
