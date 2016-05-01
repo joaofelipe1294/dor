@@ -113,4 +113,36 @@ public class ClienteDAO {
         }
     }
     
+    public List<Cliente> buscaProCnpjECpf(Cliente clienteBusca){
+        String sql = "select * from cliente where cpf like(?) OR cnpj like(?);";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, "%" + clienteBusca.getCpf() + "%");
+                stmt.setString(2, "%" + clienteBusca.getCnpj() + "%");
+                try (ResultSet rs = stmt.executeQuery()){
+                    List<Cliente> clientes = new ArrayList<>();
+                    while(rs.next()){
+                        Cliente cliente = new Cliente();
+                        cliente.setId(rs.getLong("cliente_id"));
+                        cliente.setNome(rs.getString("nome"));
+                        cliente.setCnpj(rs.getString("cnpj"));
+                        cliente.setCpf(rs.getString("cpf"));
+                        cliente.setAtivo(rs.getBoolean("ativo"));
+                        clientes.add(cliente);
+                    }
+                    return clientes;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }

@@ -32,10 +32,10 @@
                                 <label for="radio_pf">Pessoa física</label>
                             </div>
                             <div class ="form-group margem_input" id="div_cnpj">        
-                                <input name="cnpj" id="cnpj" class="form-control" placeholder ="cnpj" pattern="[1-9*./-]*" maxlength="18"/>
+                                <input name="cnpj" id="cnpj" class="form-control" placeholder ="cnpj" pattern="[0-9*./-]*" maxlength="18"/>
                             </div>
                             <div class ="form-group margem_input" id="div_cpf" hidden="true">        
-                                <input name="cpf" id="cpf" class="form-control" placeholder ="cpf" pattern="[1-9*.-]*" maxlength="14"/>
+                                <input name="cpf" id="cpf" class="form-control" placeholder ="cpf" pattern="[0-9*.-]*" maxlength="14"/>
                             </div>
                             <div class="form-group">
                                 <label for="empresa">Empresa</label>

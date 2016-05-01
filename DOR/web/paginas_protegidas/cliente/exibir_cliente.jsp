@@ -14,5 +14,6 @@
     <body>
         <c:import url="../template.jsp"/>
         <h1>Exibe cliente!</h1>
+        ${clienteSelecionado.nome}
     </body>
 </html>

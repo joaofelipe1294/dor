@@ -25,7 +25,7 @@
                                 <input name="razao_social" id="razao_social" class="form-control" required="true" placeholder ="Razão social"/>
                             </div>
                             <div class ="form-group margem_input" id="div_cnpj">        
-                                <input name="cnpj" id="cnpj" class="form-control" required="true" placeholder ="cnpj" pattern="[1-9*./-]*" maxlength="18" minlength="18"/>
+                                <input name="cnpj" id="cnpj" class="form-control" required="true" placeholder ="cnpj" pattern="[0-9*./-]*" maxlength="18" minlength="18"/>
                             </div>
                             <button id="botao" class="btn btn-primary" disabled="false">Cadastrar</button>
                         </form>

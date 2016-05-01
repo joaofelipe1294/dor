@@ -25,10 +25,10 @@
                                 <input name="razao_social" class="form-control" required="true" placeholder ="Razão social" value="${empresaSelecionada.razaoSocial}" readonly="true"/>
                             </div>
                             <div class ="form-group margem_input">        
-                                <input name="cnpj" id="cnpj" class="form-control" required="true" placeholder ="cnpj" pattern="[1-9*./-]*" maxlength="18" minlength="18" value="${empresaSelecionada.cnpj}" readonly="true"/>
+                                <input name="cnpj" id="cnpj" class="form-control" required="true" placeholder ="cnpj" pattern="[0-9*./-]*" maxlength="18" minlength="18" value="${empresaSelecionada.cnpj}" readonly="true"/>
                             </div>
                             <div class ="form-group margem_input">        
-                                <input name="cnpj_repetido" id="cnpj_repetido" class="form-control" required="true" placeholder ="Repita o cnpj" pattern="[1-9*./-]*" maxlength="18" minlength="18"/>
+                                <input name="cnpj_repetido" id="cnpj_repetido" class="form-control" required="true" placeholder ="Repita o cnpj" pattern="[0-9*./-]*" maxlength="18" minlength="18"/>
                             </div>
                             <button id="botao" class="btn btn-danger" disabled="true">Remover</button>
                         </form>

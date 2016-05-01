@@ -52,11 +52,11 @@
                                 </li>
                                 <li role="separator" class="divider"></li>
                                 <li>
-                                    <form method="post" class="navbar-form navbar-left" role="search">
+                                    <form method="post" class="navbar-form navbar-left" role="search" action="<c:url value="/controller?tarefa=BuscaClienteProCpfCnpj"/>">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="cpf/cnpj">
+                                            <input name="cpf_cnpj" class="form-control" placeholder="cpf/cnpj" title="Apenas números" pattern="[0-9]*" maxlength="14">
                                         </div>
-                                        <button type="submit" class="btn btn-default">Pesquisar</button>
+                                        <button class="btn btn-default">Pesquisar</button>
                                     </form>
                                 </li>
                             </ul>
