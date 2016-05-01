@@ -6,6 +6,7 @@
 package tarefas;
 
 import dao.ClienteDAO;
+import dao.EmpresaDAO;
 import enums.TiposDeMensagem;
 import interfaces.Tarefa;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,7 @@ public class PreparaExibirCliente implements Tarefa{
             cliente = new ClienteDAO().buscaPorId(cliente);
             HttpSession sessao = req.getSession();
             sessao.setAttribute("clienteSelecionado", cliente);
+            sessao.setAttribute("empresas", new EmpresaDAO().lista());
             return "paginas_protegidas/cliente/exibir_cliente.jsp";
         } catch (Exception e) {
             new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.ERRO, "Erro ao encontrar cliente selecionado !");

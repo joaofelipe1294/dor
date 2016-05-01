@@ -6,6 +6,7 @@
 package tarefas;
 
 import dao.ClienteDAO;
+import dao.EmpresaDAO;
 import enums.TiposDeMensagem;
 import interfaces.Tarefa;
 import java.util.List;
@@ -33,6 +34,7 @@ public class BuscaClienteProCpfCnpj implements Tarefa{
         try {
             List<Cliente> clientes = new ClienteDAO().buscaProCnpjECpf(cliente);
             if(clientes.size() == 1){
+                sessao.setAttribute("empresas", new EmpresaDAO().lista());
                 sessao.setAttribute("clienteSelecionado", clientes.get(0));
                 return "paginas_protegidas/cliente/exibir_cliente.jsp";
             }else if(clientes.size() > 1){

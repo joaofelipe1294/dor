@@ -6,6 +6,7 @@
 package tarefas;
 
 import dao.ClienteDAO;
+import dao.EmpresaDAO;
 import enums.TiposDeMensagem;
 import interfaces.Tarefa;
 import java.util.List;
@@ -29,6 +30,7 @@ public class BuscaClientePorNome implements Tarefa{
         try {
             List<Cliente> clientesRetornados = new ClienteDAO().buscaPorNome(cliente);
             if(clientesRetornados.size() == 1){
+                sessao.setAttribute("empresas", new EmpresaDAO().lista());
                 sessao.setAttribute("clienteSelecionado", clientesRetornados.get(0));
                 return "paginas_protegidas/cliente/exibir_cliente.jsp";
             }else if(clientesRetornados.size() > 1){

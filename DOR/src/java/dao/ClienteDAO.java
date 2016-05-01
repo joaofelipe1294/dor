@@ -146,4 +146,23 @@ public class ClienteDAO {
         }
     }
     
+    public void negativar(Cliente cliente){
+        String sql = "update cliente set ativo = false where cliente_id = ?";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            con.setAutoCommit(false);
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setLong(1, cliente.getId());
+                stmt.execute();
+                con.commit();
+            } catch (Exception e) {
+                con.rollback();
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }

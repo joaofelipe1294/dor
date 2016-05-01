@@ -39,7 +39,17 @@
                         </c:if>
                         <c:if test="${clienteSelecionado.ativo == false}">
                             <div class="alert alert-success" role="alert">Cliente ok</div>
-                            <a href="" class="btn btn-danger">Negativar</a>
+                            <form method="post" >
+                                <div class="form-group">
+                                    <select class="form-control" name="empresa">
+                                        <c:forEach items="${empresas}" var="empresa">
+                                            <option value="${empresa.id}">${empresa.razaoSocial}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>                                
+                                <button class="btn btn-danger">Negativar</button>
+                            </form>
+                            
                         </c:if>
                     </div>
                 </div>
