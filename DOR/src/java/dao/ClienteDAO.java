@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import modelos.Cliente;
 
 /**
@@ -42,6 +44,36 @@ public class ClienteDAO {
                 }
             } catch (Exception e) {
                 con.rollback();
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
+    public List<Cliente> buscaPorNome(Cliente cliente){
+        String sql = "select * from cliente where nome ilike(?)";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1, "%" + cliente.getNome() + "%");
+                try (ResultSet rs = stmt.executeQuery()){
+                    List<Cliente> clientes = new ArrayList<>();
+                    while(rs.next()){
+                        Cliente clienteBanco = new Cliente();
+                        clienteBanco.setId(rs.getLong("cliente_id"));
+                        clienteBanco.setNome(rs.getString("nome"));
+                        clienteBanco.setCnpj(rs.getString("cnpj"));
+                        clienteBanco.setCpf(rs.getString("cpf"));
+                        clientes.add(clienteBanco);
+                    }
+                    return clientes;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
                 throw new RuntimeException();
             }

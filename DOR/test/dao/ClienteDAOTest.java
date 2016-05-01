@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.util.List;
 import modelos.Cliente;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,7 +41,7 @@ public class ClienteDAOTest {
 
     /**
      * Test of cadastra method, of class ClienteDAO.
-     */
+     *
     @Test
     public void testCadastra() {
         Cliente cliente = new Cliente();
@@ -52,6 +53,17 @@ public class ClienteDAOTest {
         } catch (Exception e) {
             fail();
         }
+    }*/
+
+    /**
+     * Test of buscaPorNome method, of class ClienteDAO.
+     */
+    @Test
+    public void testBuscaPorNome() {
+        Cliente clientePesquisa = new Cliente();
+        clientePesquisa.setNome("j");
+        for(Cliente cliente : new ClienteDAO().buscaPorNome(clientePesquisa))
+            System.out.println(cliente);
     }
     
 }

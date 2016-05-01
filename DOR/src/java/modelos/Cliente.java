@@ -55,6 +55,10 @@ public class Cliente {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", cnpj=" + cnpj + ", ativo=" + ativo + '}';
+    }
     
 }
