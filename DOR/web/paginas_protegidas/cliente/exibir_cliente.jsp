@@ -13,7 +13,37 @@
     </head>
     <body>
         <c:import url="../template.jsp"/>
-        <h1>Exibe cliente!</h1>
-        ${clienteSelecionado.nome}
+        <div class="row">
+            <div class="container container-fluid">
+                <div class="panel panel-primary  margem_form col-md-offset-2">
+                    <div class="panel-heading">
+                        <label>Cadastro de novo cliente</label>
+                    </div>
+                    <div class="panel-body">
+                        <div class ="form-group" id="div_razao_social">
+                            <input name="nome" id="razao_social" class="form-control" required="true" placeholder ="Nome" value="${clienteSelecionado.nome}" disabled="true"/>
+                        </div>
+                        <c:if test="${clienteSelecionado.cnpj != null}">
+                            <div class ="form-group margem_input" id="div_cnpj">        
+                                <input name="cnpj" id="cnpj" class="form-control" placeholder ="cnpj" pattern="[0-9*./-]*" maxlength="18" value="${clienteSelecionado.cnpj}" disabled="true"/>
+                            </div>
+                        </c:if>
+                        <c:if test="${clienteSelecionado.cpf != null}">
+                            <div class ="form-group margem_input" id="div_cpf">        
+                                <input name="cpf" id="cpf" class="form-control" placeholder ="cpf" pattern="[0-9*.-]*" maxlength="14" value="${clienteSelecionado.cpf}" disabled="true"/>
+                            </div>
+                        </c:if>
+                        <c:if test="${clienteSelecionado.ativo}">
+                            <div class="alert alert-danger" role="alert">Cliente Negativo </div>
+                            <button class="btn btn-success">Limpar registro</button>
+                        </c:if>
+                        <c:if test="${clienteSelecionado.ativo == false}">
+                            <div class="alert alert-success" role="alert">Cliente ok</div>
+                            <a href="" class="btn btn-danger">Negativar</a>
+                        </c:if>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

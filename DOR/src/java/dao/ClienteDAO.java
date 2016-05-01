@@ -66,6 +66,7 @@ public class ClienteDAO {
                         clienteBanco.setNome(rs.getString("nome"));
                         clienteBanco.setCnpj(rs.getString("cnpj"));
                         clienteBanco.setCpf(rs.getString("cpf"));
+                        clienteBanco.setAtivo(rs.getBoolean("ativo"));
                         clientes.add(clienteBanco);
                     }
                     return clientes;
