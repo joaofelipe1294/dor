@@ -39,10 +39,26 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cliente<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="width: 300px;">
                                 <li><a href="<c:url value="/controller?tarefa=PreparaCadastrarCliente" context="/DOR"/>">Novo</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="<c:url value="/controller?tarefa=PreparaListarEmpresas" context="/DOR"/>">Lista</a></li>
+                                <li>
+                                    <form class="navbar-form navbar-left" role="search">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="nome">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Pesquisar</button>
+                                    </form>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <form class="navbar-form navbar-left" role="search">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="cpf/cnpj">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Pesquisar</button>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
                     </ul>
