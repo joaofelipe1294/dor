@@ -27,7 +27,7 @@ create table if not exists registro (
         empresa_id integer default null ,
         cliente_id integer not null ,
         data_entrada date default CURRENT_DATE ,
-        data_saida date default CURRENT_DATE ,
+        data_saida date default null,
         constraint pk_registro primary key (registro_id) ,
         constraint fk_registro_cliente foreign key (cliente_id) references cliente (cliente_id) ,
         constraint fk_registro_emrpesa foreign key (empresa_id) references empresa (empresa_id) 
