@@ -30,7 +30,7 @@ public class BuscaClientePorNome implements Tarefa{
             List<Cliente> clientesRetornados = new ClienteDAO().buscaPorNome(cliente);
             if(clientesRetornados.size() == 1){
                 sessao.setAttribute("clienteSelecionado", clientesRetornados.get(0));
-                return "paginas_protegidas/cliente/exibe_cliente.jsp";
+                return "paginas_protegidas/cliente/exibir_cliente.jsp";
             }else if(clientesRetornados.size() > 1){
                 sessao.setAttribute("clientesRetornados", clientesRetornados);
                 return "paginas_protegidas/cliente/clientes.jsp";

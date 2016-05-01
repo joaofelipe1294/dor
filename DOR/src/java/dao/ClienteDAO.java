@@ -83,4 +83,34 @@ public class ClienteDAO {
         }
     }
     
+    public Cliente buscaPorId(Cliente clienteBusca){
+        String sql = "select * from cliente where cliente_id = ?";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setLong(1, clienteBusca.getId());
+                try (ResultSet rs = stmt.executeQuery()){
+                    if(rs.next()){
+                        Cliente cliente = new Cliente();
+                        cliente.setId(clienteBusca.getId());
+                        cliente.setNome(rs.getString("nome"));
+                        cliente.setCnpj(rs.getString("cnpj"));
+                        cliente.setCpf(rs.getString("cpf"));
+                        return cliente;
+                    }else{
+                        throw new IllegalArgumentException();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }

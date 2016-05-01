@@ -57,13 +57,40 @@ public class ClienteDAOTest {
 
     /**
      * Test of buscaPorNome method, of class ClienteDAO.
-     */
+     *
     @Test
     public void testBuscaPorNome() {
         Cliente clientePesquisa = new Cliente();
         clientePesquisa.setNome("j");
         for(Cliente cliente : new ClienteDAO().buscaPorNome(clientePesquisa))
             System.out.println(cliente);
+    }
+
+    @Test
+    public void testCadastra() {
+        System.out.println("cadastra");
+        Cliente cliente = null;
+        ClienteDAO instance = new ClienteDAO();
+        Cliente expResult = null;
+        Cliente result = instance.cadastra(cliente);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }*/
+
+    /**
+     * Test of buscaPorId method, of class ClienteDAO.
+     */
+    @Test
+    public void testBuscaPorId() {
+        Cliente cliente = new Cliente();
+        cliente.setId(1);
+        try {
+            cliente = new ClienteDAO().buscaPorId(cliente);
+            assertEquals("João Felipe Lopes de Sus", cliente.getNome());
+        } catch (Exception e) {
+            fail();
+        }
     }
     
 }

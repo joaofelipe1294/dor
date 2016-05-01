@@ -23,7 +23,6 @@ public class Controller extends HttpServlet{
     
     protected void service(HttpServletRequest req , HttpServletResponse resp) throws ServletException , IOException{
         String tarefa = req.getParameter("tarefa");
-        System.out.println("tarefa : " + tarefa);
         if(tarefa == null){
             throw new IllegalArgumentException("Você esqueceu de passar a tarefa");
         }
