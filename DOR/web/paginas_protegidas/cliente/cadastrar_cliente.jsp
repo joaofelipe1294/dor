@@ -14,5 +14,64 @@
     </head>
     <body>
         <c:import url="../template.jsp"/>
+        <div class="row">
+            <div class="container container-fluid">
+                <div class="panel panel-primary  margem_form col-md-offset-2">
+                    <div class="panel-heading">
+                        <label>Cadastro de novo cliente</label>
+                    </div>
+                    <div class="panel-body">
+                        <form method="post" action="<c:url value="/controller?tarefa=CadastrarEmpresa" context="/DOR"/>">
+                            <div class ="form-group" id="div_razao_social">
+                                <input name="razao_social" id="razao_social" class="form-control" required="true" placeholder ="Nome"/>
+                            </div>
+                            <div class="form-group">
+                                <input name="tipo_cliente" id="radio_pj" type="radio" value="pessoa_juridica" checked="true"/>
+                                <label for="radio_pj" style="margin-right: 5%;">Pessoa jorídica</label>
+                                <input name="tipo_cliente" id="radio_pf" type="radio" value="pessoa_fisica"/>
+                                <label for="radio_pf">Pessoa física</label>
+                            </div>
+                            <div class ="form-group margem_input" id="div_cnpj">        
+                                <input name="cnpj" id="cnpj" class="form-control" required="true" placeholder ="cnpj" pattern="[1-9*./-]*" maxlength="18" minlength="18"/>
+                            </div>
+                            <div class ="form-group margem_input" id="div_cpf" hidden="true">        
+                                <input name="cpf" id="cpf" class="form-control" required="true" placeholder ="cpf" pattern="[1-9*.-]*" maxlength="14" minlength="14"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa">Empresa</label>
+                                <select id="empresa" class="form-control">
+                                    dados das empresas !
+                                </select>
+                            </div>
+                            <button id="botao" class="btn btn-primary" disabled="false">Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="<c:url value="/js/funcoes_empresa.js" context="/DOR"/>"></script>
+        <script>
+            $('#cpf').on('keyup' , function (){
+                var cpf_atual = $('#cpf').val();
+                if(cpf_atual.length === 3 || cpf_atual.length === 7){
+                    cpf_atual += '.';
+                }else if(cpf_atual.length === 11){
+                    cpf_atual += '-';
+                }
+                $('#cpf').val(cpf_atual);
+            });
+            
+            
+            $('#radio_pj').change(function (){
+                $('#div_cnpj').fadeToggle();
+                $('#div_cpf').fadeToggle();
+            });
+            
+            $('#radio_pf').change(function (){
+                $('#div_cnpj').fadeToggle();
+                $('#div_cpf').fadeToggle();
+            });
+            
+        </script>
     </body>
 </html>
