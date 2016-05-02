@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelos.Cliente;
-import modelos.Empresa;
 import modelos.Registro;
 import utils.GerenciadoraDeMensagens;
 
@@ -21,26 +20,20 @@ import utils.GerenciadoraDeMensagens;
  *
  * @author joaolopes
  */
-public class NegativarCliente implements Tarefa{
+public class HabilitarCliente implements Tarefa{
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession sessao = req.getSession();
         Cliente cliente = (Cliente) sessao.getAttribute("clienteSelecionado");
-        Empresa empresa = new Empresa();
-        empresa.setId(Long.valueOf(req.getParameter("empresa")));
-        Registro registro = new Registro();
-        registro.setEmpresa(empresa);
-        registro.setCliente(cliente);
+        Registro registro = new RegistroDAO().pegaEmAberto(cliente);
         try {
-            new ClienteDAO().negativar(cliente);
-            cliente.setAtivo(true);
-            new RegistroDAO().cadastrar(registro);
-            new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.SUCESSO, "Cliente negativado com sucesso !");
-            sessao.setAttribute("clienteSelecionado", cliente);
-            return "paginas_protegidas/cliente/exibir_cliente.jsp";
+            new ClienteDAO().habilitaCliente(cliente);
+            new RegistroDAO().fechar(registro);
+            new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.SUCESSO, "Cliente habilitado com sucesso !");
+            return "paginas_protegidas/usuario_logado.jsp";
         } catch (Exception e) {
-            new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.ERRO, "Erro ao negativar cliente !");
+            new GerenciadoraDeMensagens(req).adicionaMensagem(TiposDeMensagem.ERRO, "Não foi possível habilitar o cliente");
             return "paginas_protegidas/cliente/exibir_cliente.jsp";
         }
     }
