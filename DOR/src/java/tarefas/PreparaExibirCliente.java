@@ -7,6 +7,7 @@ package tarefas;
 
 import dao.ClienteDAO;
 import dao.EmpresaDAO;
+import dao.RegistroDAO;
 import enums.TiposDeMensagem;
 import interfaces.Tarefa;
 import javax.servlet.http.HttpServletRequest;

@@ -6,6 +6,7 @@
 package servlets;
 
 import conexao.ConnectionFactory;
+import dao.RegistroDAO;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.HashMap;
@@ -17,6 +18,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Cliente;
+import modelos.Registro;
 import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -38,8 +41,11 @@ public class GereadoraDeRelatoriosServlet extends HttpServlet{
             Map<String , Object> params = new HashMap<>();
             if(tipoRelatorio.equals("clientesNegativos")){
                 nome = req.getServletContext().getRealPath("/WEB-INF/relatorios/clientes_negativos.jasper");
-                int registroId = Integer.valueOf(req.getParameter("registroId"));
-                params.put("COD_REGISTRO", registroId);
+                long registroId = Long.valueOf(req.getParameter("clienteId"));
+                Cliente cliente = new Cliente();
+                cliente.setId(registroId);
+                Registro registro = new RegistroDAO().pegaEmAberto(cliente);
+                params.put("COD_REGISTRO", registro.getId());
             }else if(tipoRelatorio.equals("vezesNegativo")){
                 nome = req.getServletContext().getRealPath("/WEB-INF/relatorios/vezes_negativo.jasper");
                 int clienteId = Integer.valueOf(req.getParameter("clienteId"));

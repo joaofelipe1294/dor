@@ -37,6 +37,8 @@
                             <div class="alert alert-danger" role="alert">Cliente Negativo </div>
                             <form method="post" action="<c:url value="/controller?tarefa=HabilitarCliente" context="/DOR"/>">
                                 <button class="btn btn-success">Habilitar cliente</button>
+                                <a href="<c:url value="/paginas_protegidas/relatorios?tipoRelatorio=vezesNegativo&clienteId=${clienteSelecionado.id}" context="/DOR"/>" class="btn btn-default"/>Historico</a>
+                                <a href="<c:url value="/paginas_protegidas/relatorios?tipoRelatorio=clientesNegativos&clienteId=${clienteSelecionado.id}" context="/DOR"/>" class="btn btn-default"/>Registro em aberto</a>
                             </form>
                         </c:if>
                         <c:if test="${clienteSelecionado.ativo == false}">
@@ -50,9 +52,10 @@
                                     </select>
                                 </div>                                
                                 <button class="btn btn-danger">Negativar</button>
+                                <a href="<c:url value="/paginas_protegidas/relatorios?tipoRelatorio=vezesNegativo&clienteId=${clienteSelecionado.id}" context="/DOR"/>" class="btn btn-default"/>Historico</a>
                             </form>
-                            
                         </c:if>
+                        
                     </div>
                 </div>
             </div>
