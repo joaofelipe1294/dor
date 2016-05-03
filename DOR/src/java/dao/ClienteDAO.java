@@ -185,4 +185,30 @@ public class ClienteDAO {
         }
     }
     
+    public boolean negativo (Cliente clienteBusca){
+        String sql = "select * from cliente where ativo = true and cpf = ? OR cnpj = ?;";
+        try (Connection con = new ConnectionFactory().getConnection()){
+            try (PreparedStatement stmt = con.prepareStatement(sql)){
+                stmt.setString(1,clienteBusca.getCpf());
+                stmt.setString(2,clienteBusca.getCnpj());
+                try (ResultSet rs = stmt.executeQuery()){
+                    if(rs.next()){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    
 }

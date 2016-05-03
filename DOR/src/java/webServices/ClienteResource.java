@@ -5,6 +5,7 @@
  */
 package webServices;
 
+import com.google.gson.Gson;
 import dao.ClienteDAO;
 import java.util.List;
 import javax.ws.rs.core.Context;
@@ -16,6 +17,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import modelos.Cliente;
 
 /**
@@ -42,8 +44,13 @@ public class ClienteResource {
     @GET
     @Path("/{cpf_cnpj}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String verificaCliente(@PathParam("cpf_cnpj") String cpfCnpj) {
-        throw new UnsupportedOperationException();
+    public Response verificaCliente(@PathParam("cpf_cnpj") String cpfCnpj) {
+        Cliente cliente = new Cliente();
+        cliente.setCnpj(aplicaMascaraCnpj(cpfCnpj));
+        cliente.setCpf(aplicaMascaraCpf(cpfCnpj));
+        boolean estaNegativo = new ClienteDAO().negativo(cliente);
+        String json = new Gson().toJson(estaNegativo);
+        return Response.ok(json).build();
     }
     
     private String aplicaMascaraCnpj(String cnpj){

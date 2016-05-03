@@ -140,7 +140,7 @@ public class ClienteDAOTest {
 
     /**
      * Test of negativar method, of class ClienteDAO.
-     */
+     *
     @Test
     public void testNegativar() {
         try {
@@ -152,6 +152,89 @@ public class ClienteDAOTest {
         } catch (Exception e) {
             fail();
         }
+    }
+
+    /**
+     * Test of cadastra method, of class ClienteDAO.
+     *
+    @Test
+    public void testCadastra() {
+        System.out.println("cadastra");
+        Cliente cliente = null;
+        ClienteDAO instance = new ClienteDAO();
+        Cliente expResult = null;
+        Cliente result = instance.cadastra(cliente);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of buscaPorNome method, of class ClienteDAO.
+     *
+    @Test
+    public void testBuscaPorNome() {
+        System.out.println("buscaPorNome");
+        Cliente cliente = null;
+        ClienteDAO instance = new ClienteDAO();
+        List<Cliente> expResult = null;
+        List<Cliente> result = instance.buscaPorNome(cliente);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of buscaPorId method, of class ClienteDAO.
+     *
+    @Test
+    public void testBuscaPorId() {
+        System.out.println("buscaPorId");
+        Cliente clienteBusca = null;
+        ClienteDAO instance = new ClienteDAO();
+        Cliente expResult = null;
+        Cliente result = instance.buscaPorId(clienteBusca);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of buscaProCnpjECpf method, of class ClienteDAO.
+     *
+    @Test
+    public void testBuscaProCnpjECpf() {
+        System.out.println("buscaProCnpjECpf");
+        Cliente clienteBusca = null;
+        ClienteDAO instance = new ClienteDAO();
+        List<Cliente> expResult = null;
+        List<Cliente> result = instance.buscaProCnpjECpf(clienteBusca);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of habilitaCliente method, of class ClienteDAO.
+     *
+    @Test
+    public void testHabilitaCliente() {
+        System.out.println("habilitaCliente");
+        Cliente cliene = null;
+        ClienteDAO instance = new ClienteDAO();
+        instance.habilitaCliente(cliene);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of negativo method, of class ClienteDAO.
+     */
+    @Test
+    public void testNegativo() {
+        Cliente cliente = new Cliente();
+        cliente.setCnpj("67.676.667/6667-67");
+        assertTrue(new ClienteDAO().negativo(cliente));
     }
 
     /**
